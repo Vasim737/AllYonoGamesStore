@@ -1,43 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllYonoGamesStor</title>
+<title>AllYonoGamesStore</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
 background:#0f1117;
-font-family:Arial,sans-serif;
-margin:0;
 color:white;
 }
 
-.header{
+header{
 background:#111827;
-padding:18px;
+padding:20px;
+text-align:center;
 font-size:28px;
 font-weight:bold;
-color:#ff8800;
+color:#ff9800;
+}
+
+.telegram{
+display:block;
+margin:15px;
 text-align:center;
+background:#229ED9;
+padding:15px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.search-box{
+padding:15px;
+}
+
+.search-box input{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+.apps{
+padding:10px;
 }
 
 .card{
 background:#1c1f2b;
-margin:15px;
-padding:15px;
 border-radius:15px;
+padding:15px;
+margin-bottom:15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
+.left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.left img{
+width:60px;
+height:60px;
+border-radius:12px;
+}
+
 .download{
-background:#ff8800;
+background:#ff9800;
 color:white;
 padding:10px 15px;
+border-radius:10px;
 text-decoration:none;
-border-radius:8px;
 font-weight:bold;
 }
 </style>
@@ -45,17 +90,51 @@ font-weight:bold;
 
 <body>
 
-<div class="header">
-AllYonoGamesStore
+<header>AllYonoGamesStore</header>
+
+<a class="telegram" href="https://t.me/AllYonoPiromoCode">
+📢 Join Telegram Channel
+</a>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search Apps...">
 </div>
 
+<div class="apps" id="appList">
+
 <div class="card">
+<div class="left">
+<img src="https://via.placeholder.com/60" alt="">
 <div>
-<h3>Yono Games s</h3>
-<p>Sign Up Bonus ₹199</p>
+<h3>Yono Games Masters</h3>
+<p>Bonus ₹199</p>
 </div>
-<a href="#" class="download">DOWNLOAD</a>
 </div>
+
+<a class="download" href="#">
+DOWNLOAD
+</a>
+</div>
+
+</div>
+
+<script>
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function(){
+let filter = search.value.toLowerCase();
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let text = card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(filter)
+? "flex"
+: "none";
+});
+});
+</script>
 
 </body>
 </html>
