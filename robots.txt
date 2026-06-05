@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asim737.github.io/AllYonoGamesStore/sitemap.xml
