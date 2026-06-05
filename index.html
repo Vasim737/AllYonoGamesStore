@@ -287,6 +287,16 @@ text-decoration:none;
 box-shadow:0 0 15px rgba(34,158,217,0.7);
 z-index:9999;
 }
+.banner-slider{
+margin:10px 0;
+padding:0 5px;
+}
+
+.banner-slider img{
+width:100%;
+border-radius:15px;
+display:block;
+}
 </style>
 </head>
 
@@ -297,9 +307,10 @@ z-index:9999;
 <a class="telegram" href="https://t.me/AllYonoPiromoCode">
 📢 Join Telegram Channel
 </a> 
-<img src="https://i.ibb.co/GQP9nn1M/IMG-20260605-151221.png"
-alt="AllYonoGamesStore Banner"
-style="width:100%; border-radius:15px; margin:10px 0;">
+<div class="banner-slider">
+<img id="bannerImage"
+src="https://i.ibb.co/GQP9nn1M/IMG-20260605-151221.png">
+</div>
 <div class="offer-text">
 🎁 Download All Game Claim ₹10K Bonus 🎁
 </div>
@@ -1277,5 +1288,18 @@ class="telegram-float"
 target="_blank">
 🔮
 </a>
+  <script>
+let banners = [
+"https://i.ibb.co/GQP9nn1M/IMG-20260605-151221.png",
+"https://i.ibb.co/4wBGQbxg/IMG-20260605-151233.png"
+];
+
+let bannerIndex = 0;
+
+setInterval(function(){
+bannerIndex = (bannerIndex + 1) % banners.length;
+document.getElementById("bannerImage").src = banners[bannerIndex];
+}, 3000);
+</script>
 </body>
 </html>
