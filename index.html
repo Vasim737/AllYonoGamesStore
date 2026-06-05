@@ -1192,7 +1192,9 @@ Copyright © <b>AllYonoGamesStore</b> All Rights Reserved
 
   document.querySelector('.apps').style.display = 'none';
   document.querySelector('.footer').style.display = 'none';
-    window.scrollTo(0,0);
+  setTimeout(function(){
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}, 100);
 }
 
 function closePage(pageId) {
@@ -1200,7 +1202,9 @@ function closePage(pageId) {
 
   document.querySelector('.apps').style.display = 'block';
   document.querySelector('.footer').style.display = 'block';
-  window.scrollTo(0,0);
+  setTimeout(function(){
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}, 100);
 }
 const search = document.getElementById("search");
 
