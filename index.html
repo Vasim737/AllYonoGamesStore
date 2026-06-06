@@ -1374,22 +1374,33 @@ function showTab(tabName) {
   const popularTab = document.getElementById("popularTab");
   const search = document.getElementById("search");
 
-  if (search) {
-    search.value = "";
-  }
+  if (search) search.value = "";
 
-  document.querySelectorAll(".card").forEach(card => {
-    card.style.display = "flex";
+  const allCards = document.querySelectorAll(".card");
+
+  allCards.forEach(card => {
+    card.style.display = "none";
   });
 
   if (tabName === "new") {
     newGames.style.display = "block";
-    popularGames.style.display = "none";
+    newGames.querySelectorAll(".card").forEach(card => {
+      card.style.display = "flex";
+    });
+
     newTab.classList.add("active");
     popularTab.classList.remove("active");
   } else {
+    if (popularGames) popularGames.style.display = "block";
+
+    allCards.forEach(card => {
+      if (!newGames.contains(card)) {
+        card.style.display = "flex";
+      }
+    });
+
     newGames.style.display = "none";
-    popularGames.style.display = "block";
+
     popularTab.classList.add("active");
     newTab.classList.remove("active");
   }
