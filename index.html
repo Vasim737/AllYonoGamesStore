@@ -1370,30 +1370,34 @@ document.getElementById("bannerImage").src = banners[bannerIndex];
 function showTab(tabName) {
   const newGames = document.getElementById("newGames");
   const popularGames = document.getElementById("popularGames");
-
   const newTab = document.getElementById("newTab");
   const popularTab = document.getElementById("popularTab");
+  const search = document.getElementById("search");
+
+  if (search) {
+    search.value = "";
+  }
+
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display = "flex";
+  });
 
   if (tabName === "new") {
     newGames.style.display = "block";
     popularGames.style.display = "none";
-
     newTab.classList.add("active");
     popularTab.classList.remove("active");
-  }
-
-  if (tabName === "popular") {
+  } else {
     newGames.style.display = "none";
     popularGames.style.display = "block";
-
     popularTab.classList.add("active");
     newTab.classList.remove("active");
   }
 }
 
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
   showTab("new");
-};
+});
 </script>
 </body>
 </html>
