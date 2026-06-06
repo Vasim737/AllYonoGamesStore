@@ -1352,52 +1352,31 @@ document.getElementById("bannerImage").src = banners[bannerIndex];
 </script>
 </div>
 <script>
-let currentTab = "new";
+function showAllGames() {
+  document.querySelectorAll(".section-tabs").forEach(el => {
+    el.style.display = "none";
+  });
 
-function showTab(tabName) {
-  currentTab = tabName;
+  document.querySelectorAll("#newGames, #popularGames").forEach(el => {
+    el.style.display = "block";
+  });
 
-  const newGames = document.getElementById("newGames");
-  const popularGames = document.getElementById("popularGames");
-  const newTab = document.getElementById("newTab");
-  const popularTab = document.getElementById("popularTab");
-  const search = document.getElementById("search");
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display = "flex";
+  });
 
-  if (search) search.value = "";
-
-  if (tabName === "new") {
-    newGames.style.display = "block";
-    popularGames.style.display = "none";
-    newTab.classList.add("active");
-    popularTab.classList.remove("active");
-  } else {
-    newGames.style.display = "none";
-    popularGames.style.display = "block";
-    popularTab.classList.add("active");
-    newTab.classList.remove("active");
+  const latest = document.querySelector("div[style*='background:#2196f3']");
+  if (latest) {
+    latest.innerHTML = "🎮 ALL GAMES";
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const search = document.getElementById("search");
+window.addEventListener("load", showAllGames);
+setTimeout(showAllGames, 500);
 
-  showTab("new");
-
-  if (search) {
-    search.addEventListener("keyup", function () {
-      const filter = search.value.toLowerCase();
-      const activeSection =
-        currentTab === "new"
-          ? document.getElementById("newGames")
-          : document.getElementById("popularGames");
-
-      activeSection.querySelectorAll(".card").forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(filter) ? "flex" : "none";
-      });
-    });
-  }
-});
+function showTab() {
+  showAllGames();
+}
 </script>
 </body>
 </html>
