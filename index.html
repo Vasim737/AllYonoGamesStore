@@ -1375,7 +1375,7 @@ function showTab(tabName) {
   const popularTab = document.getElementById("popularTab");
 
   if (tabName === "new") {
-    newGames.style.display = "grid";
+    newGames.style.display = "block";
     popularGames.style.display = "none";
 
     newTab.classList.add("active");
@@ -1384,7 +1384,7 @@ function showTab(tabName) {
 
   if (tabName === "popular") {
     newGames.style.display = "none";
-    popularGames.style.display = "grid";
+    popularGames.style.display = "block";
 
     popularTab.classList.add("active");
     newTab.classList.remove("active");
