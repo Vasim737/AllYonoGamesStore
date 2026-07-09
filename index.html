@@ -157,12 +157,27 @@ border-radius:12px;
 }
 
 .download{
-  padding:8px 10px;
-  font-size:13px;
-  border-radius:10px;
-  min-width:85px;
-  text-align:center;
-  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:100px;
+  height:42px;
+  padding:0 18px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.5px;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 8px 20px rgba(34,197,94,.35);
+  transition:.25s ease;
+}
+
+.download:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(34,197,94,.45);
 }
 
 .card{
