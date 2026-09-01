@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AllYonoGamesStore</title>
+  <script>
+let pageTitle = "All Yono Games Store - Download All Yono Games APK & Bonus List | ";
+let speed = 250; // Scroll speed (milliseconds me)
+
+function scrollTitle() {
+  document.title = pageTitle;
+  pageTitle = pageTitle.substring(1) + pageTitle.charAt(0);
+  setTimeout(scrollTitle, speed);
+}
+
+scrollTitle();
+  </script>
+  
 <meta name="description" content="AllYonoGamesStore - Download Top Yono Games, Rummy Games, Bonus Apps, Daily Offers and Claim Welcome Bonus.">
 
 <meta name="keywords" content="Yono Games, Rummy Apps, Bonus Apps, Yono Rummy, Rummy888, DD Game, BetAce, KK Game, AllYonoGamesStore">
