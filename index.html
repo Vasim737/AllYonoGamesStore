@@ -401,6 +401,35 @@ background:#9C27B0;
 .top-bonus-btn{
 background:#FF5722;
 }
+  .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-bottom-right-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  z-index: 2;
+}
+
+.badge-hot {
+  background: linear-gradient(135deg, #ff1744, #ff5722);
+  color: #fff;
+}
+
+.badge-new {
+  background: linear-gradient(135deg, #00e5ff, #0091ea);
+  color: #fff;
+}
+  
 </style>
 </head>
 
@@ -1734,5 +1763,29 @@ function showTab() {
   showAllGames();
 }
 </script>
+    <script>
+function applyDynamicBadges() {
+  const allCards = document.querySelectorAll("#appList .card");
+  
+  if (allCards.length > 0) {
+    const hotBadge = document.createElement("span");
+    hotBadge.className = "badge-tag badge-hot";
+    hotBadge.innerHTML = "🔥 HOT";
+    allCards[0].prepend(hotBadge);
+  }
+
+  for (let i = 1; i <= 2; i++) {
+    if (allCards[i]) {
+      const newBadge = document.createElement("span");
+      newBadge.className = "badge-tag badge-new";
+      newBadge.innerHTML = "✨ NEW";
+      allCards[i].prepend(newBadge);
+    }
+  }
+}
+
+window.addEventListener("DOMContentLoaded", applyDynamicBadges);
+    </script>
+    
 </body>
 </html>
