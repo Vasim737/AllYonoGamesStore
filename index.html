@@ -429,6 +429,29 @@ background:#FF5722;
   background: linear-gradient(135deg, #00e5ff, #0091ea);
   color: #fff;
 }
+  .app-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #cbd5e1;
+  margin-top: 3px;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.app-meta .star {
+  color: #facc15;
+}
+
+.app-meta .dot {
+  color: #64748b;
+  font-size: 8px;
+}
   
 </style>
 </head>
@@ -1854,6 +1877,24 @@ function applyDynamicBadges() {
 
 window.addEventListener("DOMContentLoaded", applyDynamicBadges);
     </script>
+    
+<script>
+function addAppRatings() {
+  const cards = document.querySelectorAll("#appList .card .left > div");
+  cards.forEach(div => {
+    if (!div.querySelector(".app-meta")) {
+      const h3 = div.querySelector("h3");
+      if (h3) {
+        const meta = document.createElement("div");
+        meta.className = "app-meta";
+        meta.innerHTML = '<span class="star">★</span> 4.8 <span class="dot">●</span> 45 MB';
+        h3.after(meta);
+      }
+    }
+  });
+}
+window.addEventListener("DOMContentLoaded", addAppRatings);
+</script>
     
 </body>
 </html>
